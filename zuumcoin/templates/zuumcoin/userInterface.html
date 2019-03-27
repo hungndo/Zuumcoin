@@ -1,0 +1,50 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'zuumcoin/style.css'%}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZuumCoin</title>
+</head>
+<input>
+    <h1>Zuumcoin</h1>
+    <h2>Your future</h2>
+    <div class="battery">
+        <progress min="0" max="100" value="40">Battery</progress>
+    </div>
+    <div class="coins">
+        <div class="penny">
+            <img src="{% static 'zuumcoin/images/penny.png' %}"
+                 height="130px" width="130px"/>
+        </div>
+        <div class="nickel">
+            <img src="{% static 'zuumcoin/images/nickel.png' %}"
+                 height="130px" width="130px"/>
+        </div>
+        <div class="dime">
+            <img src="{% static 'zuumcoin/images/dime.png' %}"
+                 height="130px" width="130px"/>
+        </div>
+        <div class="quarter">
+            <img src="{% static 'zuumcoin/images/quarter.png' %}"
+                height="130px" width="130px"/>
+        </div>
+    </div>
+    <div class="count">
+        <div class="penny">{{penny_count}}</div>
+        <div class="nickel">{{nickel_count}}</div>
+        <div class="dime">{{dime_count}}</div>
+        <div class="quarter">{{quarter_count}}</div>
+    </div>
+    <form action="{% url 'zuumcoin:switch' %}" method= "POST">
+        {% csrf_token %}
+        <input type="radio" name="choice" id="start" value="start">
+        <label for="start">Start</label>
+        <input type="radio" name="choice" id="stop" value="stop">
+        <label for="stop">Stop</label>
+        <input id="button" type="submit" name="button" value="Start"/>
+    </form>
+    {{test}}
+    <div class="total">Total: 0 cents</div>
+</body>
+</html>

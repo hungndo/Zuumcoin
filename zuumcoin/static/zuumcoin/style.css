@@ -1,0 +1,108 @@
+
+h1{
+  text-align: center;
+  color: white;
+  font-size: 3.5em;
+}
+h2{
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+  position: relative;
+  top: -1em;
+}
+body{
+  background: url("images/background.jpg");
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 50%;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: lightsteelblue;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(30, 30, 30, 0.25) inset;
+}
+progress[value]::-webkit-progress-value {
+  background-image:
+       -webkit-linear-gradient(-45deg,
+                               transparent 33%, rgba(0, 0, 0, .1) 33%,
+                               rgba(0,0, 0, .1) 66%, transparent 66%),
+       -webkit-linear-gradient(top,
+                               rgba(255, 255, 255, .25),
+                               rgba(0, 0, 0, .25)),
+       -webkit-linear-gradient(left, #09c, #f44);
+
+    border-radius: 2px;
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+@-webkit-keyframes animate-stripes {
+   100% { background-position: -100px 0px; }
+
+}
+
+@keyframes animate-stripes {
+   100% { background-position: -100px 0px; }
+}
+
+.battery{
+  text-align: center;
+}
+.coins{
+  text-align: center;
+  position: relative;
+  top: 1em;
+}
+.count{
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  position: relative;
+  top:5em;
+  left: 2em;
+}
+.penny{
+  position: absolute;
+  top: 10%;
+  left: 15%;
+}
+.nickel{
+  position: absolute;
+  top: 10%;
+  left: 32%;
+}
+.dime{
+  position: absolute;
+  top: 10%;
+  left: 57%;
+}
+.quarter{
+  position: absolute;
+  top: 10%;
+  left: 75%;
+}
+
+.total{
+  text-align: center;
+  color: white;
+  font-size: 3em;
+  position: relative;
+  top:3em;
+}
+button{
+  text-align: center;
+  position: relative;
+  height: 7em;
+  width: 7em;
+  left:46.5%;
+  top: 3em;
+  border-radius: 30%;
+  background-color: rebeccapurple;
+  color: white;
+}
+button:hover {
+  background-color: #441199
+}
