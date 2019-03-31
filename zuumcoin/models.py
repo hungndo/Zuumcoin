@@ -14,8 +14,8 @@ class Coin(models.Model):
     def count(self):
         return self.coin_count
 
-   # def increase(self):
-       # self.coin_count += 1
+    def increase(self):
+        self.coin_count += 1
       #  self.total += 1
      #   return
 
