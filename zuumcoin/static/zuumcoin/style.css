@@ -92,7 +92,7 @@ progress[value]::-webkit-progress-value {
   position: relative;
   top:3em;
 }
-button{
+form{
   text-align: center;
   position: relative;
   height: 7em;
@@ -100,9 +100,6 @@ button{
   left:46.5%;
   top: 3em;
   border-radius: 30%;
-  background-color: rebeccapurple;
-  color: white;
+
 }
-button:hover {
-  background-color: #441199
-}
+

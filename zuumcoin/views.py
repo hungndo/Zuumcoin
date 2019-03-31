@@ -17,6 +17,7 @@ def user_interface(request):
                    'nickel_count': coin[1].count(),
                    'dime_count': coin[2].count(),
                    'quarter_count': coin[3].count(),
+                   'total' : Coin.find_total()
                    })
 
 def switch(request):

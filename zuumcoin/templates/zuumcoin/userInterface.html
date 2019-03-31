@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>ZuumCoin</title>
 </head>
-<input>
     <h1>Zuumcoin</h1>
     <h2>Your future</h2>
     <div class="battery">
@@ -39,11 +38,13 @@
     <form action="{% url 'zuumcoin:switch' %}" method= "POST">
         {% csrf_token %}
         <input type="radio" name="choice" id="start" value="start">
-        <label for="start">Start</label>
+        <label for="start">Start</label><br>
         <input type="radio" name="choice" id="stop" value="stop">
         <label for="stop">Stop</label>
-        <input id="button" type="submit" name="button" value="Start"/>
+        <div class = "button">
+            <input id="button" type="submit" name="button" value="Start"/>
+        </div>
     </form>
-    <div class="total">Total: 0 cents</div>
+    <div class="total">Total: {{total}} cents</div>
 </body>
 </html>
