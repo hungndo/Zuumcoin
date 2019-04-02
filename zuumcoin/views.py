@@ -21,10 +21,22 @@ def user_interface(request):
                    })
 
 def switch(request):
-    option = request.POST['choice']
-    control.turn_on()
-    if option == 'start':
-        control.turn_on()
+    try:
+        option = request.POST['choice']
+    except(KeyError):
+        coin = get_list_or_404(Coin)
+        return render(request,'zuumcoin/userInterface.html',
+                      {'penny_count': coin[0].count(),
+                       'nickel_count': coin[1].count(),
+                       'dime_count': coin[2].count(),
+                       'quarter_count': coin[3].count(),
+                       'total' : Coin.find_total()
+                       })
     else:
-        control.turn_off()
-    return HttpResponseRedirect(reverse('zuumcoin:interface'))
+        if option == 'start':
+            control.turn_on()
+        elif option == 'stop':
+            control.turn_off()
+        else:
+            control.turn_off()
+        return HttpResponseRedirect(reverse('zuumcoin:interface'))
