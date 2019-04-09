@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Coin
-from control import control
+import zuumcoin.control.control
 # Create your views here.
 
 

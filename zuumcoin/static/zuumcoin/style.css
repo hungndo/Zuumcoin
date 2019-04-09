@@ -75,7 +75,7 @@ progress[value]::-webkit-progress-value {
 .penny{
   position: absolute;
   top: 10%;
-  left: 15%;
+  left: 12%;
 }
 .nickel{
   position: absolute;
@@ -85,12 +85,12 @@ progress[value]::-webkit-progress-value {
 .dime{
   position: absolute;
   top: 10%;
-  left: 57%;
+  left: 60%;
 }
 .quarter{
   position: absolute;
   top: 10%;
-  left: 75%;
+  left: 79%;
 }
 
 /* total */

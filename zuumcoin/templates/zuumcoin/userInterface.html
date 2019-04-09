@@ -38,8 +38,10 @@
     <form action="{% url 'zuumcoin:switch' %}" method= "POST">
         {% csrf_token %}
         <label class="switch_option">
-            <input type="radio" name="choice" id="start" value="start" checked>
+            <input type="radio" name="choice" id="start" value="start">
             <label for="start">Start</label>
+	    <input type="radio" name="choice" id="refresh" value="refresh" checked>
+            <label for="refresh">Refresh</label>
             <input type="radio" name="choice" id="stop" value="stop">
             <label for="stop">Stop</label>
         </label>

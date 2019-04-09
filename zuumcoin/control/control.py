@@ -1,5 +1,5 @@
-import pinoff
-import pinon
+import zuumcoin.control.pinoff
+import zuumcoin.control.pinon
 
 def turn_off():
     pinoff.turn_off()
