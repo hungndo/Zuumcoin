@@ -15,6 +15,8 @@ def measureFront():
   time.sleep(0.00001)
   GPIO.output(FrontTrigUS, False)
   start = time.time()
+  #time.sleep(0.00006)
+  start = time.time()
 
   while GPIO.input(FrontEchoUS) == 0:
     start = time.time()
@@ -32,7 +34,7 @@ def measureSide():
   GPIO.output(SideTrigUS, True)
   time.sleep(0.00001)
   GPIO.output(SideTrigUS, False)
-  start = time.time()
+  #start = time.time()
 
   while GPIO.input(SideEchoUS) == 0:
     start = time.time()

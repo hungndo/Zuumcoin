@@ -5,38 +5,43 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Coin
-import zuumcoin.control.control
+from .models import Coin, Battery
+import zuumcoin.control.main
 # Create your views here.
 
 
 def user_interface(request):
-    coin = get_list_or_404(Coin)
-    return render(request,'zuumcoin/userInterface.html',
-                  {'penny_count': coin[0].count(),
-                   'nickel_count': coin[1].count(),
-                   'dime_count': coin[2].count(),
-                   'quarter_count': coin[3].count(),
-                   'total' : Coin.find_total()
-                   })
+	coin = get_list_or_404(Coin)
+	battery = get_list_or_404(Battery)
+	return render(request,'zuumcoin/userInterface.html',
+				  {'penny_count': coin[0].Count(),
+				   'nickel_count': coin[1].Count(),
+				   'dime_count': coin[2].Count(),
+				   'quarter_count': coin[3].Count(),
+				   'total' : Coin.FindTotal(),
+				   'battery' : battery[0].getBattery(),
+				   })
 
 def switch(request):
-    try:
-        option = request.POST['choice']
-    except(KeyError):
-        coin = get_list_or_404(Coin)
-        return render(request,'zuumcoin/userInterface.html',
-                      {'penny_count': coin[0].count(),
-                       'nickel_count': coin[1].count(),
-                       'dime_count': coin[2].count(),
-                       'quarter_count': coin[3].count(),
-                       'total' : Coin.find_total()
-                       })
-    else:
-        if option == 'start':
-            control.turn_on()
-        elif option == 'stop':
-            control.turn_off()
-        else:
-            control.turn_off()
-        return HttpResponseRedirect(reverse('zuumcoin:interface'))
+	try:
+		option = request.POST['choice']
+	except(KeyError):
+		coin = get_list_or_404(Coin)
+		return render(request,'zuumcoin/userInterface.html',
+					  {'penny_count': coin[0].Count(),
+					   'nickel_count': coin[1].Count(),
+					   'dime_count': coin[2].Count(),
+					   'quarter_count': coin[3].Count(),
+					   'total' : Coin.FindTotal(),
+					   'battery' : battery[0].getBattery(),
+					   })
+	else:
+		if option == 'start':
+			main.TurnOn()
+		elif option == 'stop':
+			main.TurnOff()
+		elif option == 'pause':
+			main.Pause()
+		else:
+			print("refresh")
+		return HttpResponseRedirect(reverse('zuumcoin:interface'))
