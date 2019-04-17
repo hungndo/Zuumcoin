@@ -10,11 +10,11 @@ ser = serial.Serial('/dev/serial0', 9600)
 CHAR_BUFFER = 16
 
 #assign the commands to be sent to the arduino
-COIN_CMD = 'C'
-RESET_CMD = 'R'
-VACUUM_CMD = 'V'
-BATTERY_CMD = 'B'
-RAWDATA_CMD = 'Z'
+COIN_CMD = b'C'
+RESET_CMD = b'R'
+VACUUM_CMD = b'V'
+BATTERY_CMD = b'B'
+RAWDATA_CMD = b'Z'
 
 ACK_CMD = 'A'
 
@@ -27,7 +27,7 @@ def getCoinCount():
 	dimes = int(ser.read(2))
 	nickels = int(ser.read(2))
 	pennies = int(ser.read(2))
-	coinCount = [pennies, nickels, dimes, quarters]
+	coinCount = [quarters, dimes, nickels, pennies]
 	ser.close()
 	return coinCount
 	

@@ -10,6 +10,13 @@ SideTrigUS = 4
 SideEchoUS = 17
 
 def measureFront():
+  # Set pins as output and input
+  GPIO.setup(FrontTrigUS,GPIO.OUT)  # Trigger
+  GPIO.setup(FrontEchoUS,GPIO.IN)      # Echo
+
+  # Set trigger to False (Low)
+  GPIO.output(FrontTrigUS, False)
+  
   # This function measures a distance
   GPIO.output(FrontTrigUS, True)
   time.sleep(0.00001)
@@ -26,10 +33,17 @@ def measureFront():
 
   elapsed = stop-start
   distanceFront = (elapsed * 34300)/2 # times speed of sound, divide by 2 for distance
-
+  GPIO.cleanup()
   return distanceFront
 
 def measureSide():
+  # Set pins as output and input
+  GPIO.setup(FrontTrigUS,GPIO.OUT)  # Trigger
+  GPIO.setup(FrontEchoUS,GPIO.IN)      # Echo
+
+  #Set trigger to False (Low)
+  GPIO.output(FrontTrigUS, False)
+  
   # This function measures a distance
   GPIO.output(SideTrigUS, True)
   time.sleep(0.00001)
@@ -44,10 +58,10 @@ def measureSide():
 
   elapsed = stop-start
   distanceSide = (elapsed * 34300)/2 # times speed of sound, divide by 2 for distance
-
+  GPIO.cleanup()
   return distanceSide
 
-
+"""
 print "Ultrasonic Measurement"
 
 # Set pins as output and input
@@ -74,3 +88,4 @@ except KeyboardInterrupt:
   # User pressed CTRL-C
   # Reset GPIO settings
   GPIO.cleanup()
+"""
