@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Coin, Battery
-import zuumcoin.control.main
+import zuumcoin.control.main as main
 # Create your views here.
 
 
@@ -19,7 +19,7 @@ def user_interface(request):
 				   'dime_count': coin[2].Count(),
 				   'quarter_count': coin[3].Count(),
 				   'total' : Coin.FindTotal(),
-				   'battery' : battery[0].getBattery(),
+				   'battery' : battery[0].GetBattery(),
 				   })
 
 def switch(request):
@@ -33,7 +33,7 @@ def switch(request):
 					   'dime_count': coin[2].Count(),
 					   'quarter_count': coin[3].Count(),
 					   'total' : Coin.FindTotal(),
-					   'battery' : battery[0].getBattery(),
+					   'battery' : battery[0].GetBattery(),
 					   })
 	else:
 		if option == 'start':

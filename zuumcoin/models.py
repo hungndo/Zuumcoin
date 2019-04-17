@@ -38,7 +38,7 @@ class Coin(models.Model):
 		return total_dict['total']
 
 class Battery(models.Model):
-	battery_percent = models.DecimalField(max_digits=3,decimal_places=2)
+	battery_percent = models.DecimalField(max_digits=5,decimal_places=2)
 	def SetBattery(self, new_value):
 		self.battery_percent = new_value
 	def GetBattery(self):
